@@ -1,0 +1,26 @@
+
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "SIEGENIA Device Setup",
+        "description": "Configure your SIEGENIA device connection",
+        "data": {
+          "host": "Host/IP",
+          "use_ssl": "Use SSL (wss://)",
+          "port": "Port",
+          "username": "Username",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the device",
+      "invalid_auth": "Invalid authentication",
+      "unknown": "Unexpected error occurred"
+    },
+    "abort": {
+      "already_configured": "Device is already configured"
+    }
+  }
+}

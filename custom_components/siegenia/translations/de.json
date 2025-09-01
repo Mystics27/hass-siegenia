@@ -1,0 +1,26 @@
+
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "SIEGENIA Gerät hinzufügen",
+        "description": "Verbindung zu einem SIEGENIA Gerät herstellen",
+        "data": {
+          "host": "Host/IP",
+          "use_ssl": "SSL verwenden (wss://)",
+          "port": "Port",
+          "username": "Benutzername",
+          "password": "Kennwort"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung fehlgeschlagen",
+      "invalid_auth": "Authentifizierung fehlgeschlagen",
+      "unknown": "Unbekannter Fehler aufgetreten"
+    },
+    "abort": {
+      "already_configured": "Ger#t wurde bereits hinzugefügt"
+    }
+  }
+}

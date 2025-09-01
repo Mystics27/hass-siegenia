@@ -1,0 +1,12 @@
+set_fan_level:
+  name: Set Fan Level
+  description: Set the exact fan level (0-7) for AEROPAC devices
+  target:
+    entity:
+      domain: fan
+      integration: siegenia
+  fields:
+    level:
+      name: Fan Level
+      description: Fan level from 0 (off) to 7 (maximum)
+      required: true

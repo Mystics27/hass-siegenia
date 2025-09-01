@@ -1,0 +1,13 @@
+{
+  "domain": "siegenia",
+  "name": "Siegenia",
+  "codeowners": ["@Mystics27"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/Mystics27/hass-siegenia",
+  "homekit": {},
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/Mystics27/hass-siegenia/issues",
+  "requirements": ["aiohttp>=3.8.0"],
+  "version": "1.0.0"
+}
