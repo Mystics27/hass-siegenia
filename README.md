@@ -69,10 +69,9 @@ custom_components/siegenia/
 ├── coordinator.py
 ├── device.py
 ├── fan.py
+├── manifest.json
 ├── number.py
 ├── services.py
-├── manifest.json
-├── strings.json
 └── services.yaml
 ```
 
