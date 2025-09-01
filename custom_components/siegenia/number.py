@@ -64,7 +64,7 @@ class SiegeniaFanLevelNumber(CoordinatorEntity, NumberEntity):
             "serial_number": device_info.get("serialnr"),
         }
         
-        self._attr_name = "Lüfterstufe"
+        self._attr_name = "fanlevel"
         self._attr_translation_key = "fan_level"
 
     @property
@@ -81,10 +81,11 @@ class SiegeniaFanLevelNumber(CoordinatorEntity, NumberEntity):
             _LOGGER.debug("Setting fan level to %s", fan_level)
             
             if fan_level == 0:
-                # Lüfter ausschalten
+                # Turn Device off
                 await self.coordinator.async_set_fan_level(0)
+                await self.coordinator.async_set_device_active(False)
             else:
-                # Erst Gerät aktivieren, dann Stufe setzen
+                # Turn Device on, then set fan speed level
                 await self.coordinator.async_set_device_active(True)
                 await self.coordinator.async_set_fan_level(fan_level)
                 
