@@ -60,6 +60,9 @@ Diese Integration ermöglicht die vollständige Steuerung von Siegenia-Geräten 
 ### Dateistruktur nach Installation
 ```
 custom_components/siegenia/
+├──translations/
+├──── de.json
+├──── en.json
 ├── __init__.py
 ├── config_flow.py
 ├── const.py
