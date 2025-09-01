@@ -120,13 +120,13 @@ Nach erfolgreicher Einrichtung erhalten Sie folgende Entities:
 ```yaml
 type: entities
 entities:
-  - entity: number.aeropac_michael_lüfterstufe
+  - entity: number.aeropac_xyz_fanlevel
     name: "Lüfterstufe"
   - type: divider
-  - entity: fan.aeropac_michael
+  - entity: fan.aeropac_xyz
     attribute: fan_level_name
     name: "Aktuelle Stufe"
-  - entity: fan.aeropac_michael
+  - entity: fan.aeropac_xyz
     attribute: device_active
     name: "Gerät aktiv"
 ```
@@ -134,7 +134,7 @@ entities:
 #### Erweiterte Karte
 ```yaml
 type: custom:mushroom-entity-card
-entity: number.aeropac_michael_lüfterstufe
+entity: number.aeropac_xyz_fanlevel
 name: Wandlüfter
 icon: mdi:fan
 tap_action:
@@ -154,7 +154,7 @@ automation:
     action:
       - service: number.set_value
         target:
-          entity_id: number.aeropac_michael_lüfterstufe
+          entity_id: number.aeropac_xyz_fanlevel
         data:
           value: 4  # Stufe 4
 ```
@@ -169,7 +169,7 @@ automation:
     action:
       - service: number.set_value
         target:
-          entity_id: number.aeropac_michael_lüfterstufe
+          entity_id: number.aeropac_xyz_fanlevel
         data:
           value: 1  # Leise Stufe 1
 ```
@@ -186,7 +186,7 @@ automation:
     action:
       - service: number.set_value
         target:
-          entity_id: number.aeropac_michael_lüfterstufe
+          entity_id: number.aeropac_xyz_fanlevel
         data:
           value: 0  # Ausschalten
 ```
@@ -207,7 +207,7 @@ automation:
             sequence:
               - service: number.set_value
                 target:
-                  entity_id: number.aeropac_michael_lüfterstufe
+                  entity_id: number.aeropac_xyz_fanlevel
                 data:
                   value: 1
           - conditions:
@@ -217,13 +217,13 @@ automation:
             sequence:
               - service: number.set_value
                 target:
-                  entity_id: number.aeropac_michael_lüfterstufe
+                  entity_id: number.aeropac_xyz_fanlevel
                 data:
                   value: 5
         default:
           - service: number.set_value
             target:
-              entity_id: number.aeropac_michael_lüfterstufe
+              entity_id: number.aeropac_xyz_fanlevel
             data:
               value: 3
 ```
@@ -236,7 +236,7 @@ Direkte Lüfterstufe setzen (0-7):
 ```yaml
 service: siegenia.set_fan_level
 target:
-  entity_id: fan.aeropac_michael
+  entity_id: fan.aeropac_xyz
 data:
   level: 3
 ```
@@ -276,13 +276,6 @@ logger:
 - Home Assistant Logs überprüfen
 - Integration entfernen und neu hinzufügen
 - `custom_components/siegenia/` Ordner-Berechtigung prüfen
-
-### Test-Verbindung
-Verwenden Sie das bereitgestellte Test-Script um die Verbindung zu testen:
-```bash
-cd /config
-python3 test_connection.py
-```
 
 ### Erweiterte Diagnostik
 ```bash
