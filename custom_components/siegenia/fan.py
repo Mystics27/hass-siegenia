@@ -45,7 +45,7 @@ class SiegeniaFan(CoordinatorEntity, FanEntity):
         FanEntityFeature.TURN_ON | 
         FanEntityFeature.TURN_OFF
     )
-    _attr_speed_count = 7  # Stufen 1-7
+    _attr_speed_count = 7  # Level 1-7
 
     def __init__(
         self, 
@@ -104,7 +104,7 @@ class SiegeniaFan(CoordinatorEntity, FanEntity):
     @property
     def speed_count(self) -> int:
         """Return the number of speeds the fan supports."""
-        return 7  # Stufen 1-7
+        return 7  # Level 1-7
 
     async def async_turn_on(
         self,
@@ -114,19 +114,19 @@ class SiegeniaFan(CoordinatorEntity, FanEntity):
     ) -> None:
         """Turn on the fan."""
         try:
-            # Wenn keine Geschwindigkeit angegeben, verwende Stufe 3 als Standard
+            # If no speed level is selected, use level 4 as default
             if percentage is not None:
-                # Percentage zu Stufe 1-7 konvertieren
+                # Convert Percentage to Level 1-7
                 fan_level = max(1, min(7, int((percentage / 100) * 7)))
             else:
-                fan_level = 4  # Standard Mittelstufe
+                fan_level = 4  # Default
                 
             _LOGGER.debug("Turning on fan with level %s (from percentage %s)", fan_level, percentage)
             
-            # Zuerst sicherstellen dass Gerät aktiv ist
+            # Make sure device is turned on
             await self.coordinator.async_set_device_active(True)
             
-            # Dann Lüfterstufe setzen
+            # Set Fan Level
             await self.coordinator.async_set_fan_level(fan_level)
             
         except Exception as err:
@@ -136,9 +136,9 @@ class SiegeniaFan(CoordinatorEntity, FanEntity):
         """Turn off the fan."""
         try:
             _LOGGER.debug("Turning off fan (setting level to 0)")
-            # Lüfter ausschalten = Stufe 0
+            # Turn Device Off = Level 0
             await self.coordinator.async_set_fan_level(0)
-            # Gerät ausschalten
+            # Turn Device Off
             await self.coordinator.async_set_device_active(False)
         except Exception as err:
             _LOGGER.error("Error turning off fan: %s", err)
@@ -149,7 +149,7 @@ class SiegeniaFan(CoordinatorEntity, FanEntity):
             if percentage == 0:
                 await self.async_turn_off()
             else:
-                # Percentage zu Stufe 1-7 konvertieren
+                # Convert Percentage to Level 1-7
                 fan_level = max(1, min(7, int((percentage / 100) * 7)))
                 _LOGGER.debug("Setting fan level %s (from percentage %s)", fan_level, percentage)
                 await self.coordinator.async_set_fan_level(fan_level)
