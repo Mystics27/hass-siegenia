@@ -108,7 +108,7 @@ Nach erfolgreicher Einrichtung erhalten Sie folgende Entities:
 - Prozentuale Geschwindigkeitsregelung (0-100%)
 - Wird automatisch auf Stufen 0-7 gemappt
 
-#### 🔢 Number Entity: `number.aeropac_[name]_lüfterstufe` ⭐️ **Empfohlen**
+#### 🔢 Number Entity: `number.aeropac_[name]_fanlevel` ⭐️ **Empfohlen**
 - **Direkter Stufen-Slider: 0-7**
 - Stufe 0 = Aus
 - Stufen 1-7 = Lüftergeschwindigkeit
